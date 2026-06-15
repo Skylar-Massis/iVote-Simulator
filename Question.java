@@ -1,10 +1,12 @@
 import java.util.ArrayList;
 import java.util.List;
 
+// I decided not to make an abstract class or interface for question because I thought it was too complicated.
 public class Question{
     private boolean questionType;
     private final List<String> candidates = new ArrayList<>();
     private int answerType;
+
     void setQuestionType(boolean multiChoice){
         questionType = multiChoice;
         if(multiChoice){
@@ -13,13 +15,14 @@ public class Question{
             System.out.println("Single Choice Question");
         }
     }
+
     boolean getQuestionType(){
         return questionType;
     }
     //Setters and getters for QuestionType
 
     void setAnswerType(int answerType){
-    this.answerType = answerType;
+        this.answerType = answerType;
     }
     
     int getAnswerType(){
@@ -27,23 +30,25 @@ public class Question{
     }
     //Setter and getters for answerType
 
-   public void setCandidates(int numberOfAnswers, int answerType) {
-    this.answerType = answerType;
-
-    if(answerType == 0){
+    public void setCandidates(int numberOfAnswers, int answerType) {
+        this.answerType = answerType;
+        if(answerType == 0){
             for (int i = 0; i < numberOfAnswers; i++) {
                 char letter = (char) ('A' + i);
                 candidates.add(String.valueOf(letter));
-}}  if (answerType == 1){
+            }
+        }if (answerType == 1){
             for (int i = 0; i < numberOfAnswers; i++) {
                 candidates.add(String.valueOf(i + 1));
-}}  if (answerType == 2){
+            }
+        }if (answerType == 2){
             candidates.add("False");
             candidates.add("True");
             questionType = false;
-    }}
+        }
+    }
     public List<String> getCandidates() {
-    return candidates;
+        return candidates;
     }
     //Setter and getter functions for Candidates
 
